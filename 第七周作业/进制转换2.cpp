@@ -11,7 +11,7 @@ public:
         while(n)
         {
             int remain=abs(n%x);//余数必须表示为正数，由此以余数为导向
-            ans.insert(ans.begin(),remain+'0');
+            ans.insert(ans.begin(),remain<10?remain+'0':'A'+remain-10);//保证大于十的输出问题
             n-=remain;
             n/=x;
         }
@@ -24,9 +24,8 @@ int main()
     Solution s;
     cin>>n;
     int N,R;//转换数据和进制
-    for(int i=0;i<n;i++)
+    while(cin>>N>>R)//持续输入
     {
-        cin>>N>>R;
         cout<<s.converse(N,R)<<endl;
     }
     getchar();
